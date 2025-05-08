@@ -45,10 +45,18 @@ def main():
 
     if all_data:
         combined_df = pd.concat(all_data, ignore_index=True)
+
+        # Add blank columns
+        combined_df['School'] = ''
+        combined_df['key'] = ''
+        combined_df['Job Title'] = ''
+        combined_df['Staff/Student'] = ''
+
         combined_df.to_excel(OUTPUT_FILE, index=False)
         print(f"Saved combined attendance to: {OUTPUT_FILE}")
     else:
         print("No attendance data found.")
+
 
 if __name__ == "__main__":
     main()
